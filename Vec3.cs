@@ -33,11 +33,22 @@ namespace WeekendRaytracing
             return new Vec3(a.x * b.x, a.y * b.y, a.z * b.z);
         }
 
+        public static Vec3 operator *(double n, Vec3 v) {
+            return new Vec3(v.x * n, v.y * n, v.z * n);
+        }
+
         public static Vec3 operator /(Vec3 a, Vec3 b)
         {
             return new Vec3(a.x / b.x, a.y / b.y, a.z / b.z);
         }
 
+        public static Vec3 operator /(Vec3 v, double d) {
+            return new Vec3(v.x / d, v.y / d, v.z / d);
+        }
+
+        public static Vec3 UnitVector(Vec3 v) {
+            return v / v.Length();
+        }
 
         
 

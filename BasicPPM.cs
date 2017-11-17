@@ -7,7 +7,7 @@ namespace WeekendRaytracing
         int _nx = 200;
         int _ny = 100;
 
-        public void Print()
+        public void Draw()
         {
             Console.WriteLine("P3");
             Console.WriteLine("{0} {1}", _nx, _ny);
