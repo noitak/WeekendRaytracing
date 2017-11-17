@@ -17,12 +17,10 @@ namespace WeekendRaytracing
             {
                 for (int i = 0; i < _nx; i++)
                 {
-                    float r = (float)i / (float)_nx;
-                    float g = (float)j / (float)_ny;
-                    float b = 0.2f;
-                    int ir = (int)(255.99 * r);
-                    int ig = (int)(255.99 * g);
-                    int ib = (int)(255.99 * b);
+                    Vec3 vec3 = new Vec3((double)i / (double)_nx, (double)j / (double)_ny, 0.2);
+                    int ir = (int)(255.99 * vec3.r);
+                    int ig = (int)(255.99 * vec3.g);
+                    int ib = (int)(255.99 * vec3.b);
                     Console.WriteLine("{0} {1} {2}", ir, ig, ib);
                 }
             }
