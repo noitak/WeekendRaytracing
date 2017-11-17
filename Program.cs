@@ -6,8 +6,6 @@ namespace WeekendRaytracing
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World! from new namespace");
-
             BasicPPM bppm = new BasicPPM();
             bppm.Print();
         }
