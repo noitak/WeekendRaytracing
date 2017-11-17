@@ -2,16 +2,14 @@ using System;
 
 namespace WeekendRaytracing
 {
-    class BasicPPM
+    class BasicPPM : PPMDrawer
     {
         int _nx = 200;
         int _ny = 100;
 
-        public void Draw()
+        public override void Draw()
         {
-            Console.WriteLine("P3");
-            Console.WriteLine("{0} {1}", _nx, _ny);
-            Console.WriteLine("255");
+            base.drawHeader(_nx, _ny);
 
             for (int j = _ny - 1; j >= 0; j--)
             {

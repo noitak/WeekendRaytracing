@@ -6,11 +6,8 @@ namespace WeekendRaytracing
     {
         public static void Main(string[] args)
         {
-            // BasicPPM bppm = new BasicPPM();
-            // bppm.Draw();
-
-            Background b = new Background();
-            b.Draw();
+            PPMDrawer drawer = new Background();
+            drawer.Draw();
         }
     }
 }

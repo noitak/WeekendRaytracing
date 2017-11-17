@@ -2,15 +2,14 @@ using System;
 
 namespace WeekendRaytracing
 {
-    class Background
+    class Background : PPMDrawer
     {
         int _nx = 200;
         int _ny = 100;
-        public void Draw()
+
+        public override void Draw()
         {
-            Console.WriteLine("P3");
-            Console.WriteLine("{0} {1}", _nx, _ny);
-            Console.WriteLine("255");
+            base.drawHeader(_nx, _ny);
 
             Vec3 lowerLeftCorner = new Vec3(-2.0, -1.0, -1.0);
             Vec3 horizontal = new Vec3(4.0, 0.0, 0.0);
