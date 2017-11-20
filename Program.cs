@@ -6,7 +6,7 @@ namespace WeekendRaytracing
     {
         public static void Main(string[] args)
         {
-            PPMDrawer drawer = new Background();
+            PPMDrawer drawer = new PPMDrawer();
             drawer.Draw();
         }
     }

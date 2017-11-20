@@ -2,37 +2,19 @@ using System;
 
 namespace WeekendRaytracing
 {
-    class Background : PPMDrawer
+    class Background
     {
-        int _nx = 200;
-        int _ny = 100;
-
-        public override void Draw()
+        public static Vec3 Color(Ray ray)
         {
-            base.drawHeader(_nx, _ny);
+            // -1.0 < ray.Diraction < 1.0
+            Vec3 unitDirection = Vec3.UnitVector(ray.Direction());
 
-            Vec3 lowerLeftCorner = new Vec3(-2.0, -1.0, -1.0);
-            Vec3 horizontal = new Vec3(4.0, 0.0, 0.0);
-            Vec3 vertical = new Vec3(0.0, 2.0, 0.0);
-            Vec3 origin = new Vec3(0.0, 0.0, 0.0);
+            // 0.0 < t < 1.0
+            double t = 0.5 * (unitDirection.y + 1.0);
 
-            for (int j = _ny - 1; j >= 0; j--)
-            {
-                for (int i = 0; i < _nx; i++)
-                {
-                    double u = (double)i / (double)_nx;
-                    double v = (double)j / (double)_ny;
-
-                    Ray ray = new Ray(origin, lowerLeftCorner + (u * horizontal) + (v * vertical));
-
-                    Vec3 color = Util.Color(ray);
-
-                    int ir = (int)(255.99 * color.r);
-                    int ig = (int)(255.99 * color.g);
-                    int ib = (int)(255.99 * color.b);
-                    Console.WriteLine("{0} {1} {2}", ir, ig, ib);
-                }
-            }
+            // white -> blue
+            // Lerp = (1 - t) * Begin + (t * End)
+            return (1.0 - t) * new Vec3(1.0, 1.0, 1.0) + (t * new Vec3(0.5, 0.7, 1.0));
         }
     }
 }
