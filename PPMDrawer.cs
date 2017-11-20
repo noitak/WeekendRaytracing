@@ -46,9 +46,10 @@ namespace WeekendRaytracing
 
         private Vec3 getColor(Ray ray)
         {
-            if (_sphere.IsHit(ray))
-            {
-                return new Vec3(1.0, 0, 0);
+            double t = _sphere.GetHitTime(ray);
+            if (t > 0.0) {
+                Vec3 N = Vec3.UnitVector(ray.PointAtParameter(t) - new Vec3(0.0, 0.0, -1.0));
+                return 0.5 * new Vec3(N.x + 1, N.y + 1, N.z + 1);
             }
             return Background.Color(ray);
         }
