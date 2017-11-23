@@ -1,4 +1,5 @@
 project.lock.json
 bin/
 obj/
-*.ppm 
+*.ppm
+
