@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace WeekendRaytracing
 {
@@ -6,6 +7,10 @@ namespace WeekendRaytracing
     {
         int _nx = 200;
         int _ny = 100;
+
+        public BasicPPM(StreamWriter writer) : base(writer)
+        {
+        }
 
         public override void Draw()
         {
@@ -19,7 +24,7 @@ namespace WeekendRaytracing
                     int ir = (int)(255.99 * vec3.r);
                     int ig = (int)(255.99 * vec3.g);
                     int ib = (int)(255.99 * vec3.b);
-                    Console.WriteLine("{0} {1} {2}", ir, ig, ib);
+                    _writer.WriteLine("{0} {1} {2}", ir, ig, ib);
                 }
             }
         }

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace WeekendRaytracing
 {
@@ -9,11 +10,18 @@ namespace WeekendRaytracing
 
         Sphere _sphere = new Sphere(new Vec3(0.0, 0.0, -1.0), 0.5);
 
+        protected StreamWriter _writer;
+
+        public PPMDrawer(StreamWriter writer)
+        {
+            _writer = writer;
+        }
+
         protected void drawHeader(int nx, int ny)
         {
-            Console.WriteLine("P3");
-            Console.WriteLine("{0} {1}", nx, ny);
-            Console.WriteLine("255");
+            _writer.WriteLine("P3");
+            _writer.WriteLine("{0} {1}", nx, ny);
+            _writer.WriteLine("255");
         }
 
         public virtual void Draw()
@@ -39,7 +47,7 @@ namespace WeekendRaytracing
                     int ir = (int)(255.99 * color.r);
                     int ig = (int)(255.99 * color.g);
                     int ib = (int)(255.99 * color.b);
-                    Console.WriteLine("{0} {1} {2}", ir, ig, ib);
+                    _writer.WriteLine("{0} {1} {2}", ir, ig, ib);
                 }
             }
         }
